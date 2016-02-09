@@ -92,7 +92,7 @@ endif
 # Fetch information from the environment that needs to go into the document.
 env.tex: FORCE
 	@echo 'ENV ->' $@
-	${Q}python tools/gen_env.py $@
+	${Q}python2 tools/gen_env.py $@
 
 manual.pdf: VERSION env.tex manual.tex parts/*.tex parts/api/*.tex
 
