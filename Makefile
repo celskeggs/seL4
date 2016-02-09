@@ -185,7 +185,7 @@ CC = ${TOOLPREFIX}gcc
 endif
 
 ifeq (${PYTHON},)
-PYTHON = python
+PYTHON = python2
 endif
 
 # Allow manually appending CPP flags.
