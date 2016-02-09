@@ -50,13 +50,13 @@ include $(SEL4_COMMON)/common.mk
 include/sel4/invocation.h: ${SOURCE_DIR}/include/interfaces/sel4.xml
 	@echo " [GEN] $@"
 	@mkdir -p $(dir $@)
-	@${CHANGED_PATH} $@ python ${INVOCATION_ID_GEN_PATH} \
+	@${CHANGED_PATH} $@ python2 ${INVOCATION_ID_GEN_PATH} \
 		--xml $< --libsel4 --dest $@
 
 arch_include/${ARCH}/sel4/arch/invocation.h: ${SOURCE_DIR}/arch_include/${ARCH}/interfaces/sel4arch.xml 
 	@echo " [GEN] $@"
 	@mkdir -p $(dir $@)
-	@${CHANGED_PATH} ${SOURCE_DIR}/$@ python ${INVOCATION_ID_GEN_PATH} \
+	@${CHANGED_PATH} ${SOURCE_DIR}/$@ python2 ${INVOCATION_ID_GEN_PATH} \
 		--xml $< --libsel4 --arch --dest ${SOURCE_DIR}/$@
 
 # Header generator
@@ -65,7 +65,7 @@ include/sel4/syscall.h: ${SOURCE_DIR}/include/api/syscall.xsd \
 	@echo " [GEN] $@"
 	@mkdir -p $(dir $@)
 	@${XMLLINT_PATH} --noout --schema $^
-	@${CHANGED_PATH} $@ python ${SYCALL_ID_GEN_PATH} \
+	@${CHANGED_PATH} $@ python2 ${SYCALL_ID_GEN_PATH} \
 	--xml ${SOURCE_DIR}/include/api/syscall.xml \
 	--libsel4_header $@
 
@@ -75,7 +75,7 @@ include/sel4/types_gen.h: \
 		${BF_GEN_PATH}
 	@echo " [GEN] $@"
 	@mkdir -p $(dir $@)
-	@${CHANGED_PATH} $@ python ${BF_GEN_PATH} --environment libsel4 "${SOURCE_DIR}/include/sel4/types.bf" include/sel4/types_gen.h
+	@${CHANGED_PATH} $@ python2 ${BF_GEN_PATH} --environment libsel4 "${SOURCE_DIR}/include/sel4/types.bf" include/sel4/types_gen.h
 
 # Stub generator
 include/interfaces/sel4_client.h: \
@@ -84,6 +84,6 @@ include/interfaces/sel4_client.h: \
 	@echo " [GEN] $@"
 	@mkdir -p $(dir $@)
 	@${CHANGED_PATH} $@ \
-        python ${SOURCE_DIR}/tools/syscall_stub_gen.py \
+        python2 ${SOURCE_DIR}/tools/syscall_stub_gen.py \
         $(if ${CONFIG_LIB_SEL4_STUBS_USE_IPC_BUFFER_ONLY},--buffer,) \
         -a $(ARCH) -o $@ $^
