@@ -11,8 +11,6 @@
 #ifndef __LIBSEL4_SIMPLE_TYPES_H
 #define __LIBSEL4_SIMPLE_TYPES_H
 
-#include <stddef.h>
-#include <stdint.h>
 /* Get the architectural types seL4_{u}int{N} */
 #include <sel4/arch/simple_types.h>
 
