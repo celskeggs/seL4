@@ -36,7 +36,7 @@ kernel_header_template = \
 
 /* System Calls */
 {{py:syscall_number = -1}}
-{{for condition, list in assembler}}
+{{for condition, libcondition, list in assembler}}
     {{for syscall in list}}
 #define SYSCALL_{{upper(syscall)}} ({{syscall_number}})
     {{py:syscall_number -= 1}}
@@ -52,7 +52,7 @@ kernel_header_template = \
 
 enum syscall {
 {{py:syscall_number = -1}}
-{{for condition, list in enum}}
+{{for condition, libcondition, list in enum}}
     {{if len(condition) > 0}}
 #if {{condition}}
     {{endif}}
@@ -77,26 +77,26 @@ libsel4_header_template = \
 #ifndef __LIBSEL4_SYSCALL_H
 #define __LIBSEL4_SYSCALL_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 
 typedef enum {
 {{py:syscall_number = -1}}
-{{for condition, list in enum}}
-    {{if len(condition) > 0}}
-#if {{condition}}
+{{for condition, libcondition, list in enum}}
+    {{if len(libcondition) > 0}}
+#if {{libcondition}}
     {{endif}}
     {{for syscall in list}}
     seL4_Sys{{syscall}} = {{syscall_number}},
     {{py:syscall_number -= 1}}
     {{endfor}}
-    {{if len(condition) > 0}}
-#endif /* {{condition}} */
+    {{if len(libcondition) > 0}}
+#endif /* {{libcondition}} */
     {{endif}}
 {{endfor}}
     SEL4_FORCE_LONG_ENUM(seL4_Syscall_ID)
 } seL4_Syscall_ID;
 
-#endif /* __ARCH_API_SYSCALL_H */
+#endif /* __LIBSEL4_SYSCALL_H */
 """
 
 def parse_args():
@@ -122,11 +122,12 @@ def parse_syscall_list(element):
     syscalls = []
     for config in element.getElementsByTagName("config"):
         config_condition = config.getAttribute("condition")
+        config_libcondition = config.getAttribute("libcondition") or config_condition
         config_syscalls = []
         for syscall in config.getElementsByTagName("syscall"):
             name = str(syscall.getAttribute("name"))
             config_syscalls.append(name)
-        syscalls.append((config_condition, config_syscalls))
+        syscalls.append((config_condition, config_libcondition, config_syscalls))
 
     # sanity check
     assert len(syscalls) != 0

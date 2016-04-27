@@ -63,7 +63,7 @@ MESSAGE_REGISTERS_FOR_ARCH = {
 
 # Headers to include
 INCLUDES = [
-    'autoconf.h', 'sel4/types.h'
+    'sel4/config.h', 'sel4/types.h'
 ]
 
 TYPES = {

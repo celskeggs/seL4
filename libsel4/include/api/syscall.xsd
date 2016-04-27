@@ -48,6 +48,7 @@
             <xsd:element name="syscall" minOccurs="1" maxOccurs="unbounded" type="SyscallType"/>
         </xsd:sequence>
         <xsd:attribute name="condition" type="xsd:string" />
+        <xsd:attribute name="libcondition" type="xsd:string" />
     </xsd:complexType>
 
     <xsd:complexType name="SyscallType">

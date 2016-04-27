@@ -11,6 +11,7 @@
 #ifndef __LIBSEL4_BOOTINFO_H
 #define __LIBSEL4_BOOTINFO_H
 
+#include <sel4/config.h>
 #include <sel4/types.h>
 
 /* caps with fixed slot potitions in the root CNode */

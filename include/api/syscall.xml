@@ -28,7 +28,7 @@
     </api>
     <!-- Syscalls on the unknown syscall path. These definitions will be wrapped in #ifdef name -->
     <debug>
-        <config condition="defined DEBUG">
+        <config condition="defined DEBUG" libcondition="defined SEL4_DEBUG_KERNEL">
             <syscall name="DebugPutChar"  />
             <syscall name="DebugHalt"     />
             <syscall name="DebugCapIdentify"   />

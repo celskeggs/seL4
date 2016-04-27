@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_ARCH_CONSTANTS_H
 #define __LIBSEL4_ARCH_CONSTANTS_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 
 #define TLS_GDT_ENTRY 6
 #define TLS_GDT_SELECTOR ((TLS_GDT_ENTRY << 3) | 3)
