@@ -19,23 +19,27 @@
 #ifndef __LIBSEL4_ASSERT_H
 #define __LIBSEL4_ASSERT_H
 
+extern void _assert_fail_static(const char *fail);
+
+#define __assert_fail_tostring(x) #x
+#define __assert_fail(expr, file, line) _assert_fail_static(file ":" __assert_fail_tostring(line) ": assertion '" expr "' failed.")
 /**
  * Hidden function, use the macros seL4_Fail or seL4_Assert.
  */
-void __assert_fail(const char*  str, const char* file, int line, const char* function);
+//void __assert_fail(const char*  str, const char* file, int line, const char* function);
 
 /**
  * If expr evaluates to false _seL4_Fail is called with the
  * expr as a string plus the file, line and function.
  */
-#define seL4_Fail(s) __assert_fail(s, __FILE__, __LINE__, __func__)
+#define seL4_Fail(s) __assert_fail(s, __FILE__, __LINE__)
 
 /**
  * If expr evaluates to false _seL4_AssertFail is called with the
  * expr as a string plus the file, line and function.
  */
 #define seL4_Assert(expr) \
-    do { if (!(expr)) { __assert_fail(#expr, __FILE__, __LINE__, __FUNCTION__); } } while(0)
+    do { if (!(expr)) { __assert_fail(#expr, __FILE__, __LINE__); } } while(0)
 
 /**
  * An assert that tests that the expr is a compile time constant and
