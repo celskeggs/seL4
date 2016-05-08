@@ -14,7 +14,7 @@
 #include <sel4/config.h>
 #include <sel4/types.h>
 
-/* caps with fixed slot potitions in the root CNode */
+/* caps with fixed slot positions in the root CNode */
 
 enum {
     seL4_CapNull                =  0, /* null cap */
