@@ -19,7 +19,7 @@
 #ifndef __LIBSEL4_ASSERT_H
 #define __LIBSEL4_ASSERT_H
 
-extern void _assert_fail_static(const char *fail);
+extern void _assert_fail_static(const char *fail) __attribute__((noreturn));
 
 #define __assert_fail_tostring(x) #x
 #define __assert_fail(expr, file, line) _assert_fail_static(file ":" __assert_fail_tostring(line) ": assertion '" expr "' failed.")
