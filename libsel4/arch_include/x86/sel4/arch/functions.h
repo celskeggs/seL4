@@ -144,16 +144,4 @@ seL4_SetCapReceivePath(seL4_CPtr receiveCNode, seL4_CPtr receiveIndex, seL4_Word
     SEL4_SET_IPCBUF(receiveDepth, receiveDepth);
 }
 
-static inline seL4_IPCBuffer*
-seL4_GetIPCBuffer(void)
-{
-    /* Assume that the address of our IPC buffer is in the user data word. Our
-     * parent (or seL4_InitBootInfo in the case of the root task) should have
-     * ensured this is true. The user is free to overwrite this data with
-     * something else, but should then be aware they lose the functionality of
-     * this function.
-     */
-    return (seL4_IPCBuffer*)seL4_GetUserData();
-}
-
 #endif

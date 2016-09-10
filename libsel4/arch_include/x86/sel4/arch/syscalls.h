@@ -14,6 +14,7 @@
 #include <sel4/config.h>
 #include <sel4/arch/functions.h>
 #include <sel4/types.h>
+#include <sel4/bootinfo.h>
 
 static inline void
 seL4_Send(seL4_CPtr dest, seL4_MessageInfo_t msgInfo)
@@ -591,7 +592,7 @@ char *strcpy(char *, const char *);
 static inline void
 seL4_DebugNameThread(seL4_CPtr tcb, const char * name)
 {
-    strcpy((char*)seL4_GetIPCBuffer()->msg, name);
+    strcpy((char*)seL4_GetBootInfo()->ipcBuffer->msg, name);
 
     asm volatile (
         "pushl %%ebp       \n"
