@@ -101,9 +101,9 @@ typedef struct _seL4_IA32_Bootinfo {
     seL4_IA32_Mem_Region_t memRegions[CONFIG_MAX_MEM_REGIONS];
 } __attribute__ ((packed)) seL4_IA32_BootInfo;
 
-static inline seL4_IA32_BootInfo* seL4_IA32_GetBootInfo()
+static inline seL4_IA32_BootInfo* seL4_IA32_GetBootInfo(seL4_BootInfo *bootInfo)
 {
-    return (seL4_IA32_BootInfo*)(((seL4_Uint32)seL4_GetBootInfo()) + 4096);
+    return (seL4_IA32_BootInfo*)(((seL4_Uint32) bootInfo) + 4096);
 }
 
 #endif

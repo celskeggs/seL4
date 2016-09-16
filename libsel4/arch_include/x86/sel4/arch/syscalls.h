@@ -592,7 +592,9 @@ char *strcpy(char *, const char *);
 static inline void
 seL4_DebugNameThread(seL4_CPtr tcb, const char * name)
 {
-    strcpy((char*)seL4_GetBootInfo()->ipcBuffer->msg, name);
+    // TODO: fix this. it needs the address of the 'msg' section of the IPC buffer
+    seL4_BootInfo *bootInfo = (void *) 0;
+    strcpy((char*)bootInfo->ipcBuffer->msg, name);
 
     asm volatile (
         "pushl %%ebp       \n"

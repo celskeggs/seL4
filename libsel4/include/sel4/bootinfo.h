@@ -64,6 +64,5 @@ typedef struct {
 /* function declarations */
 
 void seL4_InitBootInfo(seL4_BootInfo* bi);
-seL4_BootInfo* seL4_GetBootInfo(void);
 
 #endif // __LIBSEL4_BOOTINFO_H

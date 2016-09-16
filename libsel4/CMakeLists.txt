@@ -76,6 +76,5 @@ set(LIB_SEL4_BIN_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/include/interfaces/sel4_cli
 # "exported" - used by other CMake scripts
 set(LIB_SEL4_HEADERS ${LIB_SEL4_SRC_HEADERS} ${LIB_SEL4_BIN_HEADERS})
 
-add_library(sel4 STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/sel4_bootinfo.c
-        ${LIB_SEL4_HEADERS})
+add_library(sel4 STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/sel4_nop.c ${LIB_SEL4_HEADERS})
 target_include_directories(sel4 PUBLIC ${LIB_SEL4_SRC_HEADERS})
