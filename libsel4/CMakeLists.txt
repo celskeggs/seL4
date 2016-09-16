@@ -64,10 +64,6 @@ configure_file(
         ${CMAKE_CURRENT_BINARY_DIR}/include/sel4/config.h
 )
 
-# include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
-# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/arch_include/x86)
-
 set(LIB_SEL4_SRC_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/arch_include/x86 ${CMAKE_CURRENT_BINARY_DIR}/include)
 set(LIB_SEL4_BIN_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/include/interfaces/sel4_client.h ${CMAKE_CURRENT_BINARY_DIR}/include/sel4/types_gen.h
         ${CMAKE_CURRENT_BINARY_DIR}/include/sel4/syscall.h ${CMAKE_CURRENT_BINARY_DIR}/include/sel4/arch/invocation.h
