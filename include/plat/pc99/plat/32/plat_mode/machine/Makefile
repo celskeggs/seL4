@@ -10,5 +10,5 @@
 # @TAG(D61_GPL)
 #
 
-DIRECTORIES += plat/32/plat_mode/machine
-BF_SOURCES += plat/32/plat_mode/machine/hardware.bf
+DIRECTORIES += ${SOURCE_ROOT}/include/plat/32/plat_mode/machine
+BF_SOURCES += ${SOURCE_ROOT}/include/plat/32/plat_mode/machine/hardware.bf

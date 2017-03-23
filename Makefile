@@ -386,27 +386,19 @@ else # NK_CFLAGS
 # Require autoconf to be provided if larger build
 $(if ${HAVE_AUTOCONF},,$(error autoconf.h not provided))
 STATICHEADERS += $(srctree)/include/generated/autoconf.h
-endif # NK_CFLAGS
-
+ifeq (${SEL4_ARCH}, x86_64)
+TYPE_SUFFIX:=64
+endif
 ifeq (${SEL4_ARCH}, ia32)
-INCLUDES += "-I${SOURCE_ROOT}/include/arch/$(ARCH)/arch/32"
-INCLUDES += "-I${SOURCE_ROOT}/include/plat/$(PLAT)/plat/32"
-else
-ifeq ($(SEL4_ARCH), x86_64)
-INCLUDES += "-I${SOURCE_ROOT}/include/arch/$(ARCH)/arch/64"
-INCLUDES += "-I${SOURCE_ROOT}/include/plat/$(PLAT)/plat/64"
+TYPE_SUFFIX:=32
 endif
+ifeq (${SEL4_ARCH}, aarch64)
+TYPE_SUFFIX:=64
 endif
-
-ifeq ($(SEL4_ARCH), aarch32)
-INCLUDES += "-I${SOURCE_ROOT}/include/arch/$(ARCH)/arch/32"
-INCLUDES += "-I${SOURCE_ROOT}/include/plat/$(PLAT)/plat/32"
-else
-ifeq ($(SEL4_ARCH), aarch64)
-INCLUDES += "-I${SOURCE_ROOT}/include/arch/$(ARCH)/arch/64"
-INCLUDES += "-I${SOURCE_ROOT}/include/plat/$(PLAT)/plat/64"
+ifeq (${SEL4_ARCH}, aarch32)
+TYPE_SUFFIX:=32
 endif
-endif
+endif # NK_CFLAGS
 
 ifeq (${CPU}, arm1136jf-s)
 DEFINES += -DARM1136_WORKAROUND

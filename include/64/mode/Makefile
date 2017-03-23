@@ -10,6 +10,6 @@
 # @TAG(D61_GPL)
 #
 
-DIRECTORIES += 64/mode/api
-BF_SOURCES += 64/mode/api/shared_types.bf
-INCLUDE_DIRS += 64
+DIRECTORIES += ${SOURCE_ROOT}/include/64/mode/api
+BF_SOURCES += ${SOURCE_ROOT}/include/64/mode/api/shared_types.bf
+INCLUDE_DIRS += ${SOURCE_ROOT}/include/64

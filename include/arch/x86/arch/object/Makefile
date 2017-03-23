@@ -11,3 +11,4 @@
 DIRECTORIES += arch/object
 
 BF_SOURCES += arch/object/structures.bf
+INCLUDE_DIRS += ${SOURCE_ROOT}/include/arch/${ARCH}/arch/${TYPE_SUFFIX}
