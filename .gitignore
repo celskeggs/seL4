@@ -40,3 +40,8 @@ libsel4/sel4_arch_include/x86_64/sel4/sel4_arch/invocation.h
 
 # Emacs backups
 *~
+
+*.pbf
+*_gen.h
+*.a
+libsel4/obj/
