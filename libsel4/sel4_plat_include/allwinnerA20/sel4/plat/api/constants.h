@@ -15,7 +15,7 @@
 
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif
 
 #if defined(CONFIG_HARDWARE_DEBUG_API) || defined(CONFIG_ARM_HYPERVISOR_SUPPORT)

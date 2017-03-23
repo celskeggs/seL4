@@ -11,7 +11,7 @@
  */
 #pragma once
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/faults.h>
 #include <sel4/sel4_arch/constants.h>
 

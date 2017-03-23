@@ -13,7 +13,7 @@
 #ifndef __LIBSEL4_SEL4_SEL4_ARCH_DEPRECATED_H_
 #define __LIBSEL4_SEL4_SEL4_ARCH_DEPRECATED_H_
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/types.h>
 #include <sel4/arch/syscalls.h>
 

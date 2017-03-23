@@ -14,7 +14,7 @@
 #define __LIBSEL4_SEL4_PLAT_API_CONSTANTS_H_
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif
 
 /* Defined for each architecture: the number of hardware breakpoints

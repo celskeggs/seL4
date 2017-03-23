@@ -12,7 +12,7 @@
 #define __LIBSEL4_SEL4_ARCH_MAPPING
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif
 
 #define SEL4_MAPPING_LOOKUP_LEVEL 2

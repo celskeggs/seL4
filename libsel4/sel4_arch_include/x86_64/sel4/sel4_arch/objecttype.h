@@ -14,7 +14,7 @@
 #define __LIBSEL4_SEL4_SEL4_ARCH_OBJECTTYPE_H_
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif /* HAVE_AUTOCONF */
 
 typedef enum _mode_object {

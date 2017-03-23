@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_SEL4_ARCH_SEL4_DEPRECATED_H
 #define __LIBSEL4_SEL4_ARCH_SEL4_DEPRECATED_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/macros.h>
 
 typedef seL4_Word seL4_ExceptIPCRegister SEL4_DEPRECATED("use seL4_UnknownSyscall_Msg");

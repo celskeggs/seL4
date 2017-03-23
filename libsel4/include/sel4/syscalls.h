@@ -10,7 +10,7 @@
 
 #ifndef __LIBSEL4_SYSCALLS_H
 #define __LIBSEL4_SYSCALLS_H
-#include <autoconf.h>
+#include <sel4/config.h>
 
 /**
  * @defgroup SystemCalls System Calls

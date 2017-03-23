@@ -12,7 +12,7 @@
 #define __ARCH_OBJECTTYPE_H
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif /* HAVE_AUTOCONF */
 
 typedef enum _object {

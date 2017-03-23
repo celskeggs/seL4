@@ -14,7 +14,7 @@
 #define __LIBSEL4_SEL4_ARCH_CONSTANTS_H
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif
 
 #ifndef __ASSEMBLER__

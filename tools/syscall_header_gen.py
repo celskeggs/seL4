@@ -90,7 +90,7 @@ libsel4_header_template = \
 #ifndef __LIBSEL4_SYSCALL_H
 #define __LIBSEL4_SYSCALL_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 
 typedef enum {
 {{py:syscall_number = -1}}

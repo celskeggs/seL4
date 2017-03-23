@@ -13,7 +13,7 @@
 #ifndef __LIBSEL4_SEL4_SEL4_ARCH_SYSCALLS_SYSCALL_H_
 #define __LIBSEL4_SEL4_SEL4_ARCH_SYSCALLS_SYSCALL_H_
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/arch/functions.h>
 #include <sel4/types.h>
 

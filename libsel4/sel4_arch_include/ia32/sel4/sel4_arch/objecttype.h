@@ -12,7 +12,7 @@
 #define __SEL4_ARCH_OBJECT_TYPE_H
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif /* HAVE_AUTOCONF */
 
 typedef enum _mode_object {

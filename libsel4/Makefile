@@ -33,7 +33,7 @@ endif
 PRIORITY_TARGETS := include/interfaces/sel4_client.h include/sel4/types_gen.h include/sel4/syscall.h \
 					include/sel4/invocation.h arch_include/${ARCH}/sel4/arch/invocation.h \
 					include/sel4/shared_types_gen.h sel4_arch_include/${SEL4_ARCH}/sel4/sel4_arch/invocation.h \
-					sel4_arch_include/${SEL4_ARCH}/sel4/sel4_arch/types_gen.h
+					sel4_arch_include/${SEL4_ARCH}/sel4/sel4_arch/types_gen.h include/sel4/config.h
 
 # Header files/directories this library provides
 # Note: sel4_client.h may not have been built at the time this is evaluated.
@@ -50,15 +50,18 @@ HDRFILES := \
 
 install-headers: ${PRIORITY_TARGETS}
 
-obj/sel4_bootinfo.o: src/sel4_bootinfo.c
+include/sel4/config.h: $(AUTOCONF_DIR)/autoconf.h
+	cp $^ $@
+
+obj/sel4_bootinfo.o: src/sel4_bootinfo.c install-headers
 	mkdir -p obj
-	$(CC) $(CFLAGS) -I include -I arch_include/${ARCH} -I sel4_arch_include/${SEL4_ARCH} -I sel4_plat_include/${PLAT} -I $(AUTOCONF_DIR) src/sel4_bootinfo.c -c -o obj/sel4_bootinfo.o
+	$(CC) $(CFLAGS) -I include -I arch_include/${ARCH} -I sel4_arch_include/${SEL4_ARCH} -I sel4_plat_include/${PLAT} src/sel4_bootinfo.c -c -o obj/sel4_bootinfo.o
 
 libsel4.a: obj/sel4_bootinfo.o
 	rm -f libsel4.a
 	ar rcs libsel4.a $<
 
-install: install-headers libsel4.a
+install: include/sel4/config.h install-headers libsel4.a
 	install -D -m 644 libsel4.a --target-directory=$(SYSROOT)/usr/lib/
 	install -D -m 644 include/interfaces/*.h --target-directory=$(SYSROOT)/usr/include/interfaces/
 	install -D -m 644 include/sel4/*.h --target-directory=$(SYSROOT)/usr/include/sel4/
@@ -103,12 +106,12 @@ include/sel4/syscall.h: ${SOURCE_DIR}/include/api/syscall.xsd \
 	--xml ${SOURCE_DIR}/include/api/syscall.xml \
 	--libsel4_header $@
 
-include/sel4/%.pbf: ${SOURCE_DIR}/include/sel4/%.bf $(srctree)/include/generated/autoconf.h
+include/sel4/%.pbf: ${SOURCE_DIR}/include/sel4/%.bf include/sel4/config.h
 	@echo " [PBF_GEN] $@"
 	@mkdir -p $(dir $@)
 	$(Q)${CPP} ${CPPFLAGS} -P $< > $@
 
-include/sel4/sel4_arch/%.pbf: ${SOURCE_DIR}/sel4_arch_include/${SEL4_ARCH}/sel4/sel4_arch/types.bf $(srctree)/include/generated/autoconf.h
+include/sel4/sel4_arch/%.pbf: ${SOURCE_DIR}/sel4_arch_include/${SEL4_ARCH}/sel4/sel4_arch/types.bf include/sel4/config.h
 	@echo " [PBF_GEN] $@"
 	@mkdir -p $(dir $@)
 	$(Q)${CPP} ${CPPFLAGS} -I${SOURCE_DIR}/arch_include/${ARCH}/ -P $< > $@

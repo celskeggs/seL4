@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_SEL4_ARCH_FUNCTIONS_H
 #define __LIBSEL4_SEL4_ARCH_FUNCTIONS_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/constants.h>
 
 LIBSEL4_INLINE_FUNC seL4_IPCBuffer*

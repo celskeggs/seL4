@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_ARCH_DEPRECATED_H
 #define __LIBSEL4_ARCH_DEPRECATED_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/macros.h>
 #include <sel4/sel4_arch/deprecated.h>
 

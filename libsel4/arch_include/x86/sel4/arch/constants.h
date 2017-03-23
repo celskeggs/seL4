@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_ARCH_CONSTANTS_H
 #define __LIBSEL4_ARCH_CONSTANTS_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 
 #include <sel4/sel4_arch/constants.h>
 #include <sel4/plat/api/constants.h>

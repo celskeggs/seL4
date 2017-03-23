@@ -13,7 +13,7 @@
 #ifndef __LIBSEL4_SEL4_SEL4_ARCH_TYPES_H_
 #define __LIBSEL4_SEL4_SEL4_ARCH_TYPES_H_
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/simple_types.h>
 
 typedef seL4_Uint64 seL4_Word;

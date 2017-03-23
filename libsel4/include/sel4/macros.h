@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_MACROS_H
 #define __LIBSEL4_MACROS_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 
 /*
  * Some compilers attempt to pack enums into the smallest possible type.

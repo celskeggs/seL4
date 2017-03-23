@@ -11,7 +11,7 @@
 #ifndef __LIBSEL4_ARCH_FUNCTIONS_H
 #define __LIBSEL4_ARCH_FUNCTIONS_H
 
-#include <autoconf.h>
+#include <sel4/config.h>
 #include <sel4/types.h>
 #include <sel4/sel4_arch/functions.h>
 

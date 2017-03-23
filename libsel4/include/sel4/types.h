@@ -12,7 +12,7 @@
 #define __LIBSEL4_TYPES_H
 
 #ifdef HAVE_AUTOCONF
-#include <autoconf.h>
+#include <sel4/config.h>
 #endif
 #include <sel4/simple_types.h>
 #include <sel4/macros.h>

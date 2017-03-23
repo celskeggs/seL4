@@ -10,7 +10,7 @@
 -- @TAG(D61BSD)
 --
 
-#include <autoconf.h>
+#include <sel4/config.h>
 
 base 32
 
