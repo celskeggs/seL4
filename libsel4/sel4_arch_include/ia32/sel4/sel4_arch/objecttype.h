@@ -12,8 +12,12 @@
 #define __SEL4_ARCH_OBJECT_TYPE_H
 
 #ifdef HAVE_AUTOCONF
+#include <autoconf.h>
+#else
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
-#endif /* HAVE_AUTOCONF */
+#endif
+#endif
 
 typedef enum _mode_object {
     seL4_ModeObjectTypeCount = seL4_NonArchObjectTypeCount,

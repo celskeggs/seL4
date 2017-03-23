@@ -12,7 +12,11 @@
 #define __LIBSEL4_SEL4_ARCH_CONSTANTS_H
 
 #ifdef HAVE_AUTOCONF
+#include <autoconf.h>
+#else
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
+#endif
 #endif
 
 #define TLS_GDT_ENTRY 6

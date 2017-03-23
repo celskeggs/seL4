@@ -15,7 +15,11 @@
 
 
 #ifdef HAVE_AUTOCONF
+#include <autoconf.h>
+#else
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
+#endif
 #endif
 
 #if defined(CONFIG_HARDWARE_DEBUG_API) || defined(CONFIG_ARM_HYPERVISOR_SUPPORT)

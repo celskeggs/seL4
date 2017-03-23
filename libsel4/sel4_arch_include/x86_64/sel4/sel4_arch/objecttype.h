@@ -14,8 +14,12 @@
 #define __LIBSEL4_SEL4_SEL4_ARCH_OBJECTTYPE_H_
 
 #ifdef HAVE_AUTOCONF
+#include <autoconf.h>
+#else
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
-#endif /* HAVE_AUTOCONF */
+#endif
+#endif
 
 typedef enum _mode_object {
     seL4_X86_PDPTObject = seL4_NonArchObjectTypeCount,

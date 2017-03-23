@@ -12,7 +12,11 @@
 #define BENCHMARK_TRACK_UTIL_TYPES_H
 
 #ifdef HAVE_AUTOCONF
+#include <autoconf.h>
+#else
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
+#endif
 #endif
 
 #ifdef CONFIG_BENCHMARK_TRACK_UTILISATION

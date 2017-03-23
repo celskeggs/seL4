@@ -12,7 +12,11 @@
 #define __API_CONSTANTS_H
 
 #ifdef HAVE_AUTOCONF
+#include <autoconf.h>
+#else
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
+#endif
 #endif
 
 #define LIBSEL4_BIT(n) (1ul<<(n))

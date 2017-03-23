@@ -11,9 +11,9 @@
 #ifndef __LIBSEL4_TYPES_H
 #define __LIBSEL4_TYPES_H
 
-#ifdef HAVE_AUTOCONF
+#define HAVE_SEL4_CONFIG
 #include <sel4/config.h>
-#endif
+
 #include <sel4/simple_types.h>
 #include <sel4/macros.h>
 #include <sel4/arch/types.h>

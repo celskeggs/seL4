@@ -13,7 +13,11 @@
 #ifndef __LIBSEL4_SEL4_SEL4_ARCH_CONSTANTS_H_
 #define __LIBSEL4_SEL4_SEL4_ARCH_CONSTANTS_H_
 
+#ifdef HAVE_SEL4_CONFIG
 #include <sel4/config.h>
+#else
+#include <autoconf.h>
+#endif
 
 #define TLS_GDT_ENTRY   7
 #define TLS_GDT_SELECTOR ((TLS_GDT_ENTRY << 3) | 3)
